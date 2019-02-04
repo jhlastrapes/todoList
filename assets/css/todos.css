@@ -1,0 +1,115 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #EDE574;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #E1F5C4, #EDE574); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+#container {
+	width: 360px;
+	margin: 100px auto;
+	border: 2px solid gray;
+	background-color: #f7f7f7;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	background-color: #2980b9;
+	color: white;
+	margin: 0;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+#plus {
+	float: right;
+}
+
+input {
+	font-size: 18px;
+	background-color: #f7f7f7; 
+	color: #2980b9;
+	padding: 13px 13px 13px 20px;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	/* background-color: aquamarine; */
+	font-size: inherit;
+	-moz-transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
+	-webkit-transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
+	transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
+	border: 3px solid rgba(0, 0, 0, 0);
+}
+
+input:focus {
+	background: white;
+	border: 3px solid #2980b9;
+	outline: none;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	background-color: white;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+}
+
+li:nth-child(2n) {
+	background-color: #f7f7f7;
+}
+
+.trash {
+	background: #e74c3c;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	color: white;
+	width: 0px;
+	display: inline-block;
+	opacity: 0;
+	transition: width 0.2s linear;
+	-moz-transition: width 0.2s linear;
+	-webkit-transition: width 0.2s linear;
+}
+
+li:hover span {
+	width: 40px;
+	opacity: 1.0;
+	transition: width 0.2s linear;
+	-moz-transition: width 0.2s linear;
+	-webkit-transition: width 0.2s linear;
+}
+
+.completed {
+	color: gray;
+	text-decoration: line-through;
+}
+
+.vanillaFade {
+	opacity: 0;
+	transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;	
+}
+
+.vanillaToggle {
+	margin-top: 0;
+	overflow: hidden;
+	font-size: 1px;
+	padding-top: 0;
+	padding-bottom: 0;
+	height: 0;
+	border: none;
+}
+
