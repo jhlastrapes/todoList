@@ -1,10 +1,10 @@
 body {
-	font-family: 'Roboto', sans-serif;
-	background: #EDE574;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #E1F5C4, #EDE574); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: 'Roboto', sans-serif;	
+	margin: 0;
+	/* transition: all 1.0s linear;
+	-webkit-transition: all 1.0s linear;
+	-moz-transition: all 1.0s linear; */
 }
-
 
 #container {
 	width: 360px;
@@ -18,14 +18,28 @@ h1 {
 	background-color: #2980b9;
 	color: white;
 	margin: 0;
-	padding: 10px 20px;
+	padding: 10px 7px 10px 20px;
 	text-transform: uppercase;
 	font-size: 24px;
 	font-weight: normal;
+	align-items: center;
 }
 
 #plus {
 	float: right;
+}
+
+button {
+	color: white;
+	background: #2980b9;
+	border: none;
+	width: 40px;
+	height: 28px;
+	line-height: 10px; /* this and "height" key to centering the text in this button */
+	font-size: 27px;
+	font-weight: bold;
+	text-align: center;
+	top: 5px;
 }
 
 input {
@@ -60,35 +74,50 @@ ul {
 
 li {
 	background-color: white;
+	padding-left: 20px;
 	height: 40px;
 	line-height: 40px;
-	color: #666;
+	color: rgb(75, 75, 75);
 }
 
 li:nth-child(2n) {
 	background-color: #f7f7f7;
 }
 
-.trash {
-	background: #e74c3c;
-	height: 40px;
-	margin-right: 20px;
-	text-align: center;
-	color: white;
-	width: 0px;
-	display: inline-block;
-	opacity: 0;
-	transition: width 0.2s linear;
-	-moz-transition: width 0.2s linear;
-	-webkit-transition: width 0.2s linear;
+li:nth-child(2n) span {
+	background-color: #f7f7f7;
+}
+
+li span {
+	transition: width 0.2s linear, opacity 0.2s linear;
+	-moz-transition: width 0.2s linear, opacity 0.2s linear;
+	-webkit-transition: width 0.2s linear, opacity 0.2s linear;
 }
 
 li:hover span {
 	width: 40px;
 	opacity: 1.0;
-	transition: width 0.2s linear;
-	-moz-transition: width 0.2s linear;
-	-webkit-transition: width 0.2s linear;
+	transition: width 0.2s linear, opacity 0.2s linear;
+	-moz-transition: width 0.2s linear, opacity 0.2s linear;
+	-webkit-transition: width 0.2s linear, opacity 0.2s linear;
+}
+
+.trash {
+	background-color: white;
+	height: 40px;
+	margin-right: 0px;
+	text-align: center;
+	color: rgb(226, 226, 226);
+	width: 0px;
+	opacity: 0;
+	float: right;
+}
+
+.trash:hover {
+	color: rgb(255, 0, 0);
+	transition: color 0.2s linear;
+	-moz-transition: color 0.2s linear;
+	-webkit-transition: color 0.2s linear;
 }
 
 .completed {
@@ -113,3 +142,48 @@ li:hover span {
 	border: none;
 }
 
+
+/* Compliment Text */
+#compWrapper {
+	display: none; 
+	/* initial display property*/
+	position: fixed;
+	width: 100%;
+	height: 40vh;
+	padding-top: 15vh;
+	top: 10vh;
+	z-index: 3;
+	align-items: center;
+}
+
+.ml2 {
+	margin: auto;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+	font-size: 10vw;
+	word-spacing: 50%;
+	letter-spacing: -0.05ex;
+	text-transform: none;
+	text-shadow: 3px 3px 7px rgb(70, 70, 70);
+	opacity: 0.6;
+	background: rgba(0, 0, 0, 0.0);
+	text-align: center;
+	padding: 0;
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+
+@media only screen and (max-width: 550px){
+	.ml2 {
+		font-size: 17vw;
+	}
+
+	.trash {
+		width: 40px;
+		opacity: 1.0;
+	}
+} 
