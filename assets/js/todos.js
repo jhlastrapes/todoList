@@ -32,7 +32,7 @@ var compliments = [
 ];
 
 var plus = document.getElementById("plus");
-var button = document.getElementsByTagName("button")[0];
+var button = document.getElementById("minButton");
 
 // initial background
 $("body").css("background", backgroundGradients[randomInt(backgroundGradients)]);
@@ -47,20 +47,23 @@ function changeBG(){
 // Check off specific todos by clicking
 function completed(){
   $("ul").on("click", ".lis", function(){
+    // add completed class
+    $(this).toggleClass("completed");
+    // complement animation
     if ($(this).hasClass("completed")){
+      // keep track of completed lis
+      trackCompleted();
+      // completed list compliment
+      if (liClassCount === lis.length){
+        checkedAnimation("All done. Congrats!");
+      }
+      // incomplete list compliments
+      else {
+        checkedAnimation(compliments[randomInt(compliments)]);
+      };
     }
     else {
-      // select compliment
-      $(".ml2").text(compliments[randomInt(compliments)]);
-      // change background
-      changeBG();
-      // make text and wrapper visible
-      $(".ml2").css("opacity", "0.6");
-      $("#compWrapper").css("display", "inherit");
-      // run animation function
-      compliment();
     };
-    $(this).toggleClass("completed");
   });
 };
 completed();
@@ -76,33 +79,34 @@ function xButton(){
 };
 
 // creates new to-dos
-$("input[type='text']").keyup(function(event){
+$("input[type='text']").keydown(function(event){
   // conditional for the "enter" button
   if(event.which === 13){
-    // grabs whatever is in the text box
-    var inputEnter = $('input').val();
-    // creates a new li
-    $("ul").append("<li class='lis'>" + inputEnter + "<span class='trash'><i class='far fa-trash-alt'></i></span></li>");
-    // changes background gradient
-    changeBG();
-    // adds "completed" and x button functionality to new li
-    xButton();
-    // $("li").off(); ... no longer needed thanks to ".on" change
-    // completed();
-    // clears input
-    this.value = "";
+    if (document.getElementById("todoInput").value.length > 0){ // changed from textLength to value.length due to chrome and safari browser support
+      // grabs whatever is in the text box
+      var inputEnter = $('input').val();
+      // creates a new li
+      $(".uls").append("<li class='lis'>" + inputEnter + "<span class='trash'><i class='far fa-trash-alt'></i></span></li>");
+      // changes background gradient
+      changeBG();
+      // adds "completed" and x button functionality to new li
+      xButton();
+      // $("li").off(); ... no longer needed thanks to ".on" change
+      // clears input
+      this.value = "";
+    };
   };
 });
 
 // adds minimize button functionality
 $("#plus").on("click", function(e){
   $("input").slideToggle();
-  $("button").toggleClass("minimized");
-  if ($("button").hasClass("minimized")) {
-    $("button").html("+");
+  $("#minButton").toggleClass("minimized");
+  if ($("#minButton").hasClass("minimized")) {
+    $("#minButton").html("+");
   } 
   else {
-     $("button").html("-");
+     $("#minButton").html("-");
   };
 });
 
@@ -119,20 +123,46 @@ function compliment(){
       opacity: [0,1],
       translateZ: 0,
       easing: "easeOutExpo",
-      duration: 250,
+      duration: 150,
       delay: function(el, i) {
-        return 50*i; // delay for each new letter in seconds
+        return 40*i; // delay for each new letter in seconds
       }
     }).add({
       targets: '.ml2',
       opacity: 0,
       duration: 1000,
       easing: "easeOutExpo",
-      delay: 300
+      delay: 350
     });
   setTimeout(function(){
     $("#compWrapper").css("display", "none");
-  }, 1550);
+  }, 1500);
+};
+
+// keep track of completed lis
+function trackCompleted(){
+  // count completed lis
+  lis = document.getElementsByClassName("lis");
+  liClassCount = 0;
+  // add to liClassCount if checked
+  for(var i = 0; i < lis.length; i++){
+    if (lis[i].classList.value === "lis completed") {
+      liClassCount++;
+    };
+  };
+};
+
+// animation after checking off li
+function checkedAnimation(animationText){
+  // select compliment
+  $(".ml2")[0].innerHTML = (animationText);
+  // change background
+  changeBG();
+  // make text and wrapper visible
+  $(".ml2").css("opacity", "0.6");
+  $("#compWrapper").css("display", "inherit");
+  // run animation function
+  compliment();
 };
 
 

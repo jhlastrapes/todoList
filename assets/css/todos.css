@@ -6,95 +6,152 @@ body {
 	-moz-transition: all 1.0s linear; */
 }
 
-#container {
+
+/* bootstrap navbar settings */
+.logo {
+	margin: 0 10px 0 70px;
+	width: 40px;
+	opacity: 0.9;
+}
+.navbar {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	opacity: 0;
+	transition: opacity 0.3s linear;
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+}
+.navbar:hover {
+	opacity: 0.8;
+}
+.nav-link {
+	font-size: 17px;
+	padding-left: 12px !important;
+	padding-right: 12px !important;
+}
+
+
+#container1 {
 	width: 360px;
-	margin: 100px auto;
+	margin: 75px auto 100px auto;
 	border: 2px solid gray;
 	background-color: #f7f7f7;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
+	font-family: 'Dancing Script', cursive;
 	background-color: #2980b9;
 	color: white;
 	margin: 0;
-	padding: 10px 7px 10px 20px;
+	line-height: 1.25;
+	padding: 6px 7px 6px 20px;
 	text-transform: uppercase;
-	font-size: 24px;
-	font-weight: normal;
+	font-size: 32px;
+	font-weight: 700;
+	text-transform: capitalize;
 	align-items: center;
+	text-align: center;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
 }
 
 #plus {
 	float: right;
 }
 
-button {
-	color: white;
+#minButton {
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	bottom: 1px;
+	color: rgb(248, 248, 248);
 	background: #2980b9;
 	border: none;
-	width: 40px;
-	height: 28px;
+	width: 30px;
+	height: 30px;
 	line-height: 10px; /* this and "height" key to centering the text in this button */
-	font-size: 27px;
-	font-weight: bold;
+	font-size: 24px;
+	/* font-weight: bold; */
+	margin: 0px 6px 0px 0px;
+	padding: 0;
 	text-align: center;
-	top: 5px;
+	/* top: 5px; */
 }
 
-input {
-	font-size: 18px;
+#minButton:hover {
+	background: #3293d3;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+}
+
+#minButton:active {
+	background: #318cc9;
+	box-shadow: none;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#todoInput {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
 	background-color: #f7f7f7; 
-	color: #2980b9;
-	padding: 13px 13px 13px 20px;
+	color: #478fc0;
+	padding: 13px 13px 9px 20px;
 	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	/* background-color: aquamarine; */
-	font-size: inherit;
 	-moz-transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
 	-webkit-transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
 	transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
 	border: 3px solid rgba(0, 0, 0, 0);
 }
 
-input:focus {
+#todoInput:focus {
 	background: white;
 	border: 3px solid #2980b9;
 	outline: none;
 }
 
-ul {
+.uls {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-li {
+.lis {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 	background-color: white;
-	padding-left: 20px;
+	font-size: 16px;
+	padding: 4px 0px 2px 20px;
 	height: 40px;
 	line-height: 40px;
-	color: rgb(75, 75, 75);
+	color: rgb(78, 78, 78);
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
 }
 
-li:nth-child(2n) {
+.lis:nth-child(2n) {
 	background-color: #f7f7f7;
 }
 
-li:nth-child(2n) span {
+.lis:nth-child(2n) span {
 	background-color: #f7f7f7;
 }
 
-li span {
+.lis span {
 	transition: width 0.2s linear, opacity 0.2s linear;
 	-moz-transition: width 0.2s linear, opacity 0.2s linear;
 	-webkit-transition: width 0.2s linear, opacity 0.2s linear;
 }
 
-li:hover span {
+.lis:hover span {
 	width: 40px;
 	opacity: 1.0;
 	transition: width 0.2s linear, opacity 0.2s linear;
@@ -121,7 +178,7 @@ li:hover span {
 }
 
 .completed {
-	color: gray;
+	color: rgb(180, 180, 180);
 	text-decoration: line-through;
 }
 
@@ -160,7 +217,7 @@ li:hover span {
 	margin: auto;
 	font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
-	font-size: 10vw;
+	font-size: 9vw;
 	word-spacing: 50%;
 	letter-spacing: -0.05ex;
 	text-transform: none;
@@ -178,12 +235,35 @@ li:hover span {
 
 
 @media only screen and (max-width: 550px){
+	.navbar {
+		opacity: 0.9;
+	}
+	.navbar:hover {
+		opacity: 0.9;
+	}
+	.logo {
+		margin: 0 10px 0 10px;
+	}
+
+	#minButton {
+		font-weight: 500;
+	}
+
+	.lis {
+		font-weight: 500;
+	}
+
 	.ml2 {
 		font-size: 17vw;
 	}
 
 	.trash {
 		width: 40px;
-		opacity: 1.0;
+		opacity: 0.8;
+	}
+
+	#container1 {
+		width: 95vw;
+		margin: 50px auto 100px auto;
 	}
 } 
