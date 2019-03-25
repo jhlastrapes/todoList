@@ -1,2 +1,4 @@
 assets/bootstrap-4.2.1/
 assets/js/lib/
+*.jpg
+*.png

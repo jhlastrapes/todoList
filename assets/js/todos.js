@@ -56,7 +56,7 @@ $("input[type='text']").keydown(function(event){
       // grabs whatever is in the text box
       var inputEnter = $('input').val();
       // creates a new li
-      $(".uls").append("<li class='lis'><div class='liText' title='Click to edit' contentEditable='true'>" + inputEnter + "</div><span class='trash' title='Remove'><i class='trashButton far fa-trash-alt'></i></span><span class='check' title='Done!'><i class='checkButton fas fa-check'></span></li>");
+      $(".uls").append("<li class='lis'><div class='liText' title='Click to edit' contentEditable='true'>" + inputEnter + "</div><span class='trash' title='Remove'><i class='trashButton far fa-trash-alt'></i></span><span class='check' title='Mark as complete'><i class='checkButton fas fa-check'></span></li>");
       // changes background gradient
       changeBG();
       // adds "completed" and x button functionality to new li

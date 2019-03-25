@@ -178,6 +178,9 @@ h1 {
 	width: 0px;
 	opacity: 0;
 	float: right;
+	transition: color 0.2s linear;
+	-moz-transition: color 0.2s linear;
+	-webkit-transition: color 0.2s linear;
 }
 
 .trash {
@@ -186,16 +189,10 @@ h1 {
 
 .check:hover {
 	color: rgb(0, 172, 0);
-	transition: color 0.2s linear;
-	-moz-transition: color 0.2s linear;
-	-webkit-transition: color 0.2s linear;
 }
 
 .trash:hover {
 	color: rgb(255, 0, 0);
-	transition: color 0.2s linear;
-	-moz-transition: color 0.2s linear;
-	-webkit-transition: color 0.2s linear;
 }
 
 .completed {
@@ -281,6 +278,12 @@ h1 {
 
 	.liText {
 		max-width: 70%;
+	}
+
+	#compWrapper {
+		height: 80vh;
+		padding-top: 22vh;
+		align-items: inherit;
 	}
 
 	.ml2 {
