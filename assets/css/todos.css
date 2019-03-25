@@ -32,7 +32,7 @@ body {
 
 
 #container1 {
-	width: 360px;
+	width: 400px;
 	margin: 75px auto 100px auto;
 	border: 2px solid gray;
 	background-color: #f7f7f7;
@@ -137,6 +137,16 @@ h1 {
 	-webkit-box-sizing: content-box;
 }
 
+.liText {
+	display: inline-block;
+	text-decoration: inherit;
+	max-width: 300px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
 .lis:nth-child(2n) {
 	background-color: #f7f7f7;
 }
@@ -152,22 +162,33 @@ h1 {
 }
 
 .lis:hover span {
-	width: 40px;
+	width: 32px;
 	opacity: 1.0;
 	transition: width 0.2s linear, opacity 0.2s linear;
 	-moz-transition: width 0.2s linear, opacity 0.2s linear;
 	-webkit-transition: width 0.2s linear, opacity 0.2s linear;
 }
 
-.trash {
+.trash, .check {
 	background-color: white;
 	height: 40px;
 	margin-right: 0px;
 	text-align: center;
-	color: rgb(226, 226, 226);
+	color: rgb(199, 199, 199);
 	width: 0px;
 	opacity: 0;
 	float: right;
+}
+
+.trash {
+	margin-right: 7px;
+}
+
+.check:hover {
+	color: rgb(0, 172, 0);
+	transition: color 0.2s linear;
+	-moz-transition: color 0.2s linear;
+	-webkit-transition: color 0.2s linear;
 }
 
 .trash:hover {
@@ -248,20 +269,37 @@ h1 {
 	#minButton {
 		font-weight: 500;
 	}
+	#minButton:hover {
+		background: #2980b9;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.0);
+		border: none;
+	}
 
 	.lis {
 		font-weight: 500;
+	}
+
+	.liText {
+		max-width: 70%;
 	}
 
 	.ml2 {
 		font-size: 17vw;
 	}
 
-	.trash {
-		width: 40px;
+	.trash, .check {
+		width: 32px;
 		opacity: 0.8;
 	}
 
+	.check:hover {
+		color: rgb(199, 199, 199);
+	}
+
+	.check:active {
+		color: rgb(0, 172, 0)
+	}
+	
 	#container1 {
 		width: 95vw;
 		margin: 50px auto 100px auto;

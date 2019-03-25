@@ -28,70 +28,41 @@ var compliments = [
   "Next one up!",
   "Great job!",
   "Keep going!",
-  "Way to go!"
+  "Way to go!",
+  "Yer doing terrific"
 ];
 
 var plus = document.getElementById("plus");
 var button = document.getElementById("minButton");
 
 // initial background
-$("body").css("background", backgroundGradients[randomInt(backgroundGradients)]);
+$("body").css("background", randomInt(backgroundGradients));
 document.getElementsByTagName("body")[0].style.transition = "all ease 1.0s";
 
 // changes background
 function changeBG(){
-  $("body").css("background", backgroundGradients[randomInt(backgroundGradients)]);
+  $("body").css("background", randomInt(backgroundGradients));
 };
 
 
-// Check off specific todos by clicking
-function completed(){
-  $("ul").on("click", ".lis", function(){
-    // add completed class
-    $(this).toggleClass("completed");
-    // complement animation
-    if ($(this).hasClass("completed")){
-      // keep track of completed lis
-      trackCompleted();
-      // completed list compliment
-      if (liClassCount === lis.length){
-        checkedAnimation("All done. Congrats!");
-      }
-      // incomplete list compliments
-      else {
-        checkedAnimation(compliments[randomInt(compliments)]);
-      };
-    }
-    else {
-    };
-  });
-};
-completed();
-
-// removes lis on trash click
-function xButton(){
-  $(".trash").click(function(e){
-    $(this).parent().fadeOut(500, function(){
-      $(this).remove(); // this refers to the parent. Removes the li.
-    });
-    e.stopPropagation(); // stops the event listener from bubbling up to the parent elements when clicked
-  });
-};
 
 // creates new to-dos
 $("input[type='text']").keydown(function(event){
   // conditional for the "enter" button
   if(event.which === 13){
     if (document.getElementById("todoInput").value.length > 0){ // changed from textLength to value.length due to chrome and safari browser support
+      // remove any previous event listeners for checkmark
+      $(".check").off();
       // grabs whatever is in the text box
       var inputEnter = $('input').val();
       // creates a new li
-      $(".uls").append("<li class='lis'>" + inputEnter + "<span class='trash'><i class='far fa-trash-alt'></i></span></li>");
+      $(".uls").append("<li class='lis'><div class='liText' title='Click to edit' contentEditable='true'>" + inputEnter + "</div><span class='trash' title='Remove'><i class='trashButton far fa-trash-alt'></i></span><span class='check' title='Done!'><i class='checkButton fas fa-check'></span></li>");
       // changes background gradient
       changeBG();
       // adds "completed" and x button functionality to new li
+      completed();
       xButton();
-      // $("li").off(); ... no longer needed thanks to ".on" change
+      // $("li").off(); ... event remover no longer needed thanks to ".on" change
       // clears input
       this.value = "";
     };
@@ -109,6 +80,58 @@ $("#plus").on("click", function(e){
      $("#minButton").html("-");
   };
 });
+
+// removes enter functionality when editing future lis
+function noEnter(){
+  $('ul').on("click", '.liText', function(){
+    var thisLi = $(this);
+    $('ul').keydown(function(event){
+      if(event.which === 13){
+        event.preventDefault();
+        thisLi.blur();
+        return false;
+      };
+    });
+  });
+};
+noEnter();
+
+
+// Check off specific todos by clicking checkmark
+function completed(){
+  $(".check").click(function(e){
+    // add completed class
+    $(this).parent().toggleClass("completed");
+    // complement animation
+    if ($(this).parent().hasClass("completed")){
+      // keep track of completed lis
+      trackCompleted();
+      // completed list compliment
+      if (liClassCount === lis.length){
+        checkedAnimation("All done. Congrats!");
+      }
+      // incomplete list compliments
+      else {
+        checkedAnimation(randomInt(compliments));
+      };
+    }
+    else {
+    };
+    e.stopPropagation();
+  });
+};
+
+
+// removes lis on trash click
+function xButton(){
+  $(".trash").click(function(e){
+    console.log($(this));
+    $(this).parent().fadeOut(500, function(){
+      $(this).remove(); // this refers to the parent. Removes the li.
+    });
+    e.stopPropagation(); // stops the event listener from bubbling up to the parent elements when clicked
+  });
+};
 
 // Compliment animation (wrap every letter in a span)
 function compliment(){
@@ -166,8 +189,11 @@ function checkedAnimation(animationText){
 };
 
 
-// random number generator
+// random array  generator with any array length 
 function randomInt(array){
-  var ranInt = Math.floor(Math.random()*(array.length));  // sets ranInt to random number from 0 to 17 (length of gradients array)
-  return ranInt;
+  function randomIntInit(arg){
+    var ranInt = Math.floor(Math.random()*(arg.length));  // sets ranInt to random number from 0 to 17 (length of gradients array)
+    return ranInt;
+  };
+  return array[randomIntInit(array)]
 };
