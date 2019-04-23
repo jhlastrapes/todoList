@@ -28,8 +28,7 @@ var compliments = [
   "Next one up!",
   "Great job!",
   "Keep going!",
-  "Way to go!",
-  "Yer doing terrific"
+  "Way to go!"
 ];
 
 var plus = document.getElementById("plus");

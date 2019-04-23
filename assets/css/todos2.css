@@ -1,0 +1,361 @@
+body {
+	background-image: url("rustic-surfaceExport.jpg");
+	background-size: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+/* bootstrap navbar settings */
+.logo {
+	margin: 0 10px 0 70px;
+	width: 40px;
+	opacity: 0.9;
+}
+.navbar {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	opacity: 0;
+	transition: opacity 0.3s linear;
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+}
+.navbar:hover {
+	opacity: 0.8;
+}
+.nav-link {
+	font-size: 17px;
+	padding-left: 12px !important;
+	padding-right: 12px !important;
+}
+
+
+
+.items {
+	margin: 4vh 0 0 0;
+}
+
+.leaves {
+	float: left;
+	align-items: baseline;
+	margin: 12vh 0 0 -5vw;
+}
+
+.leaves img {
+	display: inline-block;
+	height: 800px;
+	margin: auto;
+	padding: 0vh 0 0 0vw; 
+}
+
+.pencil {
+	float: left;
+	align-items: baseline;
+	margin: 14vh 1vw 0 -4.5vw;
+}
+
+.pencil img {
+	display: inline-block;
+	height: 420px;
+	margin: auto;
+	padding: 0vh 0 0 0vw; 
+}
+
+#vertAlignNB {
+	float: left;
+	margin: 0 0 0 0.5vw;
+	height: 100vh;
+	/* height: 620px; */
+	width: 517px;
+}
+
+
+
+.notebook {
+	background-image: url("notebook.png");
+	background-size: 517px 620px;
+	position: absolute;
+	margin-top: 2vh;
+  top: 50%;
+  transform: translateY(-50%);
+	height: 620px;
+	width: 517px;
+}
+
+
+
+#container1 {
+	width: 370px;
+	margin: 75px 0px 100px 82px;
+	/* box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5); */
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	margin: 0;
+	line-height: 1.25;
+	padding: 14px 7px 6px 20px;
+	text-transform: uppercase;
+	font-size: 32px;
+	font-weight: 700;
+	color: rgb(82, 82, 82);
+	text-transform: capitalize;
+	align-items: center;
+	text-align: center;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+
+#plus {
+	float: right;
+}
+
+#minButton {
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	color: rgb(155, 155, 155);
+	background-color: rgba(0, 0, 0, 0.0);
+	bottom: 1px;
+	border: none;
+	width: 30px;
+	height: 30px;
+	line-height: 10px; /* this and "height" key to centering the text in this button */
+	font-size: 24px;
+	/* font-weight: bold; */
+	margin: 0px 6px 0px 0px;
+	padding: 0;
+	text-align: center;
+	/* top: 5px; */
+}
+
+#minButton:hover {
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+}
+
+#minButton:active {
+	box-shadow: none;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#todoInput {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	padding: 3px 13px 4px 30px;
+	color: gray;
+	background-color: rgba(0, 0, 0, 0.0);
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	/* background-color: aquamarine; */
+	-moz-transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
+	-webkit-transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
+	transition: font-size .3s linear, height .3s linear, padding-top .3s linear, border .3s linear;
+	border: 3px solid rgba(0, 0, 0, 0);
+}
+
+#todoInput::placeholder {
+  color: rgb(156, 156, 156);
+}
+
+#todoInput:focus {
+	/* border: 2px solid #ffffff;
+	background: rgba(255, 255, 255, 0.733); */
+	outline: none;
+}
+
+.uls {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.lis {
+	font-family: 'Handlee', cursive;
+	/* font-style: italic; */
+	font-weight: 400;
+	font-size: 21px;
+	letter-spacing: 0.5px;
+	padding: 0px 0px 0px 25px;
+	height: 36.6px;
+	line-height: 36.6px;
+	/* color: rgb(78, 78, 78); */
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+
+.liText {
+	display: inline-block;
+	text-decoration: inherit;
+	max-width: 284px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.lis span {
+	transition: width 0.2s linear, opacity 0.2s linear;
+	-moz-transition: width 0.2s linear, opacity 0.2s linear;
+	-webkit-transition: width 0.2s linear, opacity 0.2s linear;
+}
+
+.lis:hover span {
+	width: 30px;
+	opacity: 1.0;
+	transition: width 0.2s linear, opacity 0.2s linear;
+	-moz-transition: width 0.2s linear, opacity 0.2s linear;
+	-webkit-transition: width 0.2s linear, opacity 0.2s linear;
+}
+
+.trash, .check {
+	height: 40px;
+	font-size: 16px;
+	margin-right: 0px;
+	text-align: center;
+	color: rgb(199, 199, 199);
+	width: 0px;
+	opacity: 0;
+	float: right;
+	transition: color 0.2s linear;
+	-moz-transition: color 0.2s linear;
+	-webkit-transition: color 0.2s linear;
+}
+
+.check:hover {
+	color: rgb(0, 172, 0);
+}
+
+.trash:hover {
+	color: rgb(255, 0, 0);
+}
+
+.completed {
+	color: rgb(180, 180, 180);
+	text-decoration: line-through;
+}
+
+.vanillaFade {
+	opacity: 0;
+	transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;	
+}
+
+.vanillaToggle {
+	margin-top: 0;
+	overflow: hidden;
+	font-size: 1px;
+	padding-top: 0;
+	padding-bottom: 0;
+	height: 0;
+	border: none;
+}
+
+
+/* Compliment Text */
+#compWrapper {
+	display: none; 
+	/* initial display property*/
+	position: fixed;
+	width: 100%;
+	height: 40vh;
+	padding-top: 23vh;
+	top: 10vh;
+	z-index: 3;
+	align-items: center;
+}
+
+.ml2 {
+	margin: auto;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+	font-size: 7vw;
+	word-spacing: 50%;
+	letter-spacing: -0.05ex;
+	text-transform: none;
+	text-shadow: 3px 3px 7px rgba(70, 70, 70, 0.7);
+	color: rgb(245, 245, 245);
+	background: rgba(0, 0, 0, 0.0);
+	text-align: center;
+	padding: 0;
+}
+
+.ml2 .letter {
+  display: inline-block;
+	line-height: 1em;
+}
+
+
+
+
+.latte {
+	/* display: inline-block; */
+	position: relative;
+	margin: -6vh 0 0 0vw;
+	float: left;
+}
+
+.latte img {
+	display: inline-block;
+	width: 26vw;
+	height: auto;
+	padding: 5vh 0 0 0;
+	vertical-align: unset;
+}
+
+#steam1, #steam2 {	
+	height: 45vh;
+	width: auto;
+	position: absolute;
+	left: 46%; 
+	bottom: 32%;
+	transform: translate(-50%, 0); 
+	-webkit-transform: translate(-50%, 0);
+}
+
+#steam1 {
+	opacity: 0.8;
+}
+
+#steam2 {
+	opacity: 0;
+}
+
+
+@media only screen and (max-width: 1200px){
+	body {
+		background-size: 150vw;
+	}
+
+	.leaves {
+		display: none;
+	}
+
+	.latte {
+		display: none;
+	}
+
+	.pencil {
+		margin-left: 16vw;
+	}
+} 
+
+@media only screen and (max-width: 800px){
+	body {
+		background-size: 200vw;
+	}
+
+	.pencil {
+		display: none;
+	}
+
+	.notebook {
+		margin-left: 10vw;
+	}
+} 
+
