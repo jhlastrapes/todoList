@@ -7,14 +7,16 @@ body {
 
 /* bootstrap navbar settings */
 .logo {
-	margin: 0 10px 0 70px;
+	margin: 0 10px 0 3vw;
 	width: 40px;
 	opacity: 0.9;
 }
 .navbar {
+	z-index: 5;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	opacity: 0;
+	width: 100%;
 	transition: opacity 0.3s linear;
 	-webkit-transition: opacity 0.3s linear;
 	-moz-transition: opacity 0.3s linear;
@@ -26,6 +28,19 @@ body {
 	font-size: 17px;
 	padding-left: 12px !important;
 	padding-right: 12px !important;
+}
+
+.options {
+	margin-right: 2vw;
+}
+
+.options_menu {
+	opacity: 0.9;
+}
+
+.dropdown-menu {
+	left: -90px !important;
+	text-align: center;
 }
 
 
@@ -42,7 +57,9 @@ body {
 
 .leaves img {
 	display: inline-block;
-	height: 800px;
+	/* height: 800px; */
+	/* height: 110vh; */
+	width: 34vw;
 	margin: auto;
 	padding: 0vh 0 0 0vw; 
 }
@@ -303,6 +320,7 @@ h1 {
 .latte img {
 	display: inline-block;
 	width: 26vw;
+	max-width: 420px;
 	height: auto;
 	padding: 5vh 0 0 0;
 	vertical-align: unset;
@@ -327,6 +345,24 @@ h1 {
 }
 
 
+@media only screen and (max-width: 1370px){
+	body {
+		background-size: 150vw;
+	}
+
+	.leaves {
+		margin-left: -10vw;
+	}
+
+	.latte {
+
+	}
+
+	.pencil {
+		margin-left: -3vw;
+	}
+} 
+
 @media only screen and (max-width: 1200px){
 	body {
 		background-size: 150vw;
@@ -341,13 +377,14 @@ h1 {
 	}
 
 	.pencil {
-		margin-left: 16vw;
+		margin-left: 13vw;
 	}
 } 
 
 @media only screen and (max-width: 800px){
 	body {
 		background-size: 200vw;
+		overflow: visible;
 	}
 
 	.pencil {
@@ -355,7 +392,29 @@ h1 {
 	}
 
 	.notebook {
-		margin-left: 10vw;
+		margin: 2vh 0;
+	}
+	#vertAlignNB {
+		float: none;
+		margin: 0 auto;
+	}
+} 
+
+
+@media only screen and (max-width: 550px){
+	body {
+		background-size: 400vw;
+	}
+
+	.notebook {
+		margin-left: 3vw;
+		margin-top: 14vh;
+	}
+
+	.navbar {
+		opacity: 0.8;
+		position: fixed;
+		top: 0;
 	}
 } 
 
